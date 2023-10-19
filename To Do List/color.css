@@ -1,10 +1,17 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background: linear-gradient(135deg,#fe174d, #66a6ff,#1a728a,#dff9f3);
-  min-height: 70vh;
-  padding: 1rem;
+  background: linear-gradient(135deg,#d29393, #d24714,#2a206f,#000606);
   box-sizing: border-box;
   display: flex;
   justify-content: center;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
   align-items: center;
   color: #494a4b;
   font-family: "Gochi Hand", cursive;
@@ -30,6 +37,43 @@ body {
   
 }
 
+.bubbles{
+  position:relative;
+  display: flex;
+}
+
+.bubbles span{
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: #04b6b6;
+  margin: -250px 4px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px #4fc3dc44,
+  0 0 50px #04b6b6,
+  0 0 100px #04b6b6;
+  animation: animate 15s linear infinite;
+  animation-duration: calc(100s/var(--i));
+}
+
+.bubbles span :nth-child(even)
+{
+  background: #b6043f;
+  box-shadow: 0 0 0 10px #dc4f5b44,
+  0 0 50px #b6043f,
+  0 0 100px #b6043f;
+  
+}
+
+@keyframes animate{
+  0%{
+    transform: translateY(100vh) scale(0);
+  }
+  100%{
+    transform: translateY();
+  }
+}
+
 @media only screen and (min-width: 500px) {
   body {
     min-height: 100vh;
@@ -37,10 +81,12 @@ body {
 }
 .container {
   width: 100%;
-  height: auto;
+  position: relative;
+  overflow: hidden;
+  margin-left: auto;
   min-height: 500px;
-  max-width: 500px;
-  min-width: 250px;
+  max-width: 750px;
+  min-width: 500px;
   background: #f1f5f8;
   background-image: radial-gradient(#bfc0c1 7.2%, transparent 3);
   background-size: 25px 25px;
@@ -124,9 +170,10 @@ body {
 .button span {
   background:linear-gradient(45deg,#dfe9f3,#ffffff);
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 2.3rem;
   border-radius: 5px;
   border: 2px solid #494a4b;
+  
 }
 
 .button:active, .button:focus {
